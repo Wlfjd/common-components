@@ -2,7 +2,7 @@ import React from 'react';
 
 import Button from '../common/Button';
 
-function MediumButton({ title, background }) {
+function MediumButton({ title, background, onClick }) {
   return (
     <Button
       padding="15px 30px"
@@ -10,6 +10,7 @@ function MediumButton({ title, background }) {
       fontWeight={600}
       fontSize="14px"
       background={background}
+      onClick={onClick}
     >
       {title}
     </Button>

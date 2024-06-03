@@ -13,9 +13,19 @@ function InputForm() {
 
   const onPriceChangeHandler = (e) => {
     const { value } = e.target;
-    const valueToString = value.replace(/,/g, "");
-    const newValue = parseInt(valueToString).toLocaleString();
-    setPrice(newValue);
+
+    // 숫자와 쉼표만 허용
+    const filteredValue = value.replace(/[^0-9,]/g, "");
+
+    // 숫자와 쉼표만 남긴 값에서 쉼표 제거
+    const valueToString = filteredValue.replace(/,/g, "");
+
+    if (valueToString === "") {
+      setPrice("");
+    } else {
+      const newValue = parseInt(valueToString, 10).toLocaleString();
+      setPrice(newValue);
+    }
   };
 
   const resetInputValue = () => {
